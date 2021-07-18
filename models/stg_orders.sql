@@ -1,3 +1,8 @@
+{{ config (
+    materialized="table"
+)}}
+
+
 with orders as (
     
     select
@@ -6,7 +11,7 @@ with orders as (
         order_date,
         status
 
-    from raw.jaffle_shop.orders
+    from dbt-tutorial-320221.dbt_dsclater.orders
 )
 
 select * from orders

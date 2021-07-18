@@ -1,3 +1,8 @@
+{{ config (
+    materialized="table"
+)}}
+
+
 with customers as (
     
     select 
@@ -5,7 +10,7 @@ with customers as (
         first_name,
         last_name
 
-    from raw.jaffle_shop.customers
+    from dbt-tutorial-320221.dbt_dsclater.customers
 )
 
 select * from customers
