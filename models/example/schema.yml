@@ -3,7 +3,7 @@ version: 2
 
 models:
     - name: stg_hits
-      description: "Ga360 unnesting sessions table into hit-level granularity"
+      description: '{{ doc("stg_hits") }}'
       
 
 
