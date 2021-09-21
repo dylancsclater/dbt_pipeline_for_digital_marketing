@@ -1,0 +1,6 @@
+SELECT
+    sessionId,
+    sum(total_visits) as grand_total_visits
+FROM {{ ref('stg)hits' )}}
+GROUP BY 1
+HAVING NOT(grand_total_visits <= 0)
