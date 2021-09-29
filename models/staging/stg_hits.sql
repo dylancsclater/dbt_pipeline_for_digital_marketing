@@ -11,7 +11,6 @@ WITH stg_hits AS (
     device.deviceCategory AS device_category,
     geoNetwork.city AS city,
     geoNetwork.region AS region,
-    geoNetwork.country AS country,
     src_hits.type AS hit_type,
     src_hits.time AS hit_time,
     src_hits.hitnumber AS hit_num,
