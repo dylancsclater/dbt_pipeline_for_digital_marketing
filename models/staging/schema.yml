@@ -1,32 +1,28 @@
 
 version: 2
 
-
+sources:
+  - name: ga360
+    schema: google_analytics_sample
+    database: bigquery-public-data
+    tables:
+      - name: ga_sessions_20170701
+        freshness: # GA360 transfers are 24 hours apart. This sample data is stale, so it of course won't actually be fresh.
+          #warn_after: {count: 24, period: hour}
+          #error_after: {count: 30, period: hour}
 
 models:
     - name: base_hits
       description: '{{ doc("base_hits") }}'
     - name: stg_hits
       description: '{{ doc("stg_hits") }}'
-      columns:
-      - name: sessionId
-        description: 'The sessionId is a unique identifier that is assigned when a user visits a site. If a user does not interact for too long and comes back later (eg. a timeout), a new sessionId will be created even if they haven't left the page.'
-        tests:
-          - unique
-          - not_null
-      - name: medium
-        description: 'This data describes the way in which a user enters the site. For example, a paid search lead will enter the site with a medium value of "cpc"'
-        tests:
-          - accepted_values:
-              values: ['cpc', 'organic', 'referral']
     - name: added_conversions
       description: 'Used event category, event label, and event action to map out the custom conversions (Goals) achieved by a user in a session'
     - name: added_landing_pages
       description: 'Takes the first page visited on an entrance and records it as a landing page for analysis'
     - name: aggregated_hits_to_sessions
-      description: 'Reaggrate the hit level data back to session level granularity'
+      description: 'Reaggragate the hit level data back to session level granularity'
       
-
       
 
 
