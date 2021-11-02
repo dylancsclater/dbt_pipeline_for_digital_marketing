@@ -16,6 +16,14 @@ models:
       description: '{{ doc("base_hits") }}'
     - name: stg_hits
       description: '{{ doc("stg_hits") }}'
+      columns:
+      - name: sessionid
+        description: hi
+        tests:
+          - unique
+          - not_null
+      
+      
     - name: added_conversions
       description: 'Used event category, event label, and event action to map out the custom conversions (Goals) achieved by a user in a session'
     - name: added_landing_pages
