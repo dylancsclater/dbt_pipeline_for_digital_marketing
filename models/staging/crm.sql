@@ -1,1 +1,1 @@
-SELECT *, "a" AS enricheddata1 FROM {{ ref('base_sessions')}}
+SELECT *, "a" AS enricheddata1 FROM {{ ref('stg_hits')}}
