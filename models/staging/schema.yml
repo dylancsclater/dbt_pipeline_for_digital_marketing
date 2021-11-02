@@ -16,6 +16,12 @@ models:
       description: '{{ doc("base_hits") }}'
     - name: stg_hits
       description: '{{ doc("stg_hits") }}'
+      columns:
+          - name: sessionId
+            description: 'Primary key of the table, created as a composition to rectify downsides of the out-of-the-box sessionid key. Using this key keeps-alive a session overnight among other minor annoyances with the original sessionid.'
+            tests:
+              - unique
+              - not_null
     - name: added_conversions
       description: 'Used event category, event label, and event action to map out the custom conversions (Goals) achieved by a user in a session'
     - name: added_landing_pages
