@@ -9,8 +9,6 @@ WITH stg_hits AS (
     trafficSource.adContent AS content,
     device.browser AS browser,
     device.deviceCategory AS device_category,
-    geoNetwork.city AS city,
-    geoNetwork.region AS region,
     src_hits.type AS hit_type,
     src_hits.time AS hit_time,
     src_hits.hitnumber AS hit_num,
@@ -31,7 +29,7 @@ WITH stg_hits AS (
     src_hits.eventInfo.eventLabel AS event_label,
     clientId AS cid
 
-    FROM {{ ref('base_hits')}}
+    FROM {{ ref('base_sessions')}}, unnest(hits) AS src_hits
 )
 
 SELECT * FROM stg_hits

@@ -12,10 +12,12 @@ sources:
           #error_after: {count: 30, period: hour}
 
 models:
-    - name: base_hits
-      description: '{{ doc("base_hits") }}'
+
     - name: stg_hits
       description: '{{ doc("stg_hits") }}'
+      columns:
+      - name: sessionId
+        description: "This column is created in a custom fashion in line with best practices to create a unique ID that is superior to the out-of-the-box version which fails to track people over midnight among other drawbacks."
     - name: added_conversions
       description: 'Used event category, event label, and event action to map out the custom conversions (Goals) achieved by a user in a session'
     - name: added_landing_pages
