@@ -31,7 +31,7 @@ WITH stg_hits AS (
     src_hits.eventInfo.eventLabel AS event_label,
     clientId AS cid
 
-    FROM {{ ref('base_hits')}}
+    FROM {{ ref('base_sessions')}}, unnest(hits) AS src_hits
 )
 
 SELECT * FROM stg_hits
