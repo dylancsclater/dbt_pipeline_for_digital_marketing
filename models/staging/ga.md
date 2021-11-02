@@ -12,8 +12,8 @@
 {% docs stg_hits %}
 
 ## Stage Hits from GA360 Session Level Data.
-This table contains ga360 data from the bigquery public ga360 dataset. It serves as a demo for web analytics using dbt and GCP.
-By unnesting sessions into hit level granularity data, we can extract further insights from user traffic behavior.
+This table contains GA360 data from the bigquery public ga360 dataset. It serves as a demo for web analytics using dbt and GCP.
+By unnesting sessions into hit level granularity data, we can extract further insights from user traffic behavior. 
 
 # Navigation
  - /www.internaldocs.com/analytics
